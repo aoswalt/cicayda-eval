@@ -9,7 +9,7 @@
 (defn frame [stringList]
   (def longest (reduce longer stringList))
   (def longestLength (count longest))
-  (def cap (repeat longestLength "*"))
+  (def cap (str "**" (apply str (repeat longestLength "*")) "**"))
   (print cap)
   (print \newline)
   (map #(str "* " (stringPad %1 longestLength) " *") stringList))
