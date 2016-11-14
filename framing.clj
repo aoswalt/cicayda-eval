@@ -3,13 +3,16 @@
 (defn longer [a b]
   (if (> (count a) (count b)) a b))
 
+(defn stringPad [string longestLength]
+  (apply str string (repeat (- longestLength (count string)) "-")))
+
 (defn frame [stringList]
   (def longest (reduce longer stringList))
   (def longestLength (count longest))
   (def cap (repeat longestLength "*"))
   (print cap)
   (print \newline)
-  (map #(str "* " %1 (apply str (repeat (- longestLength (count %1)) "-")) " *") stringList))
+  (map #(str "* " (stringPad %1 longestLength) " *") stringList))
 
 (print (reduce longer ["different" "strings"]))
 (print \newline)
