@@ -1,7 +1,7 @@
 ;NOTE(adam): a function that translates a text to Pig Latin and back
 
 (defn changeWords [string changer]
-  (def stringList (clojure.string/split string #" "))
+  (def stringList (.split string " "))
   (def changedList (map changer stringList))
   (def changedString (reduce #(str %1 " " %2) changedList))
   changedString)
