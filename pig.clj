@@ -1,7 +1,10 @@
 ;NOTE(adam): a function that translates a text to Pig Latin and back
 
-(defn toPigLatin [string] "toPig")
-(defn fromPigLatin [string] "fromPig")
+(defn changeWords [string changer]
+  (changer string))
+
+(defn toPigLatin [string] (changeWords string #(str "toPig " %1)))
+(defn fromPigLatin [string] (changeWords string #(str "fromPig " %1)))
 
 
 (print "The quick brown fox -->  ")
