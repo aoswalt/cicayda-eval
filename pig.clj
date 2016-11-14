@@ -6,8 +6,11 @@
   (def changedString (reduce #(str %1 " " %2) changedList))
   changedString)
 
-(defn toPigLatin [string] (changeWords string #(str (apply str (rest %1)) (first %1) "ay")))
-(defn fromPigLatin [string] (changeWords string #(str "fromPig" %1)))
+(defn toPigLatin [string]
+  (changeWords string #(str (apply str (rest %1)) (first %1) "ay")))
+
+(defn fromPigLatin [string]
+  (changeWords string #(apply str (last (drop-last 2 %1)) (drop-last 3 %1))))
 
 
 (print "The quick brown fox -->  ")
