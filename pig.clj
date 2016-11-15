@@ -2,10 +2,15 @@
 
 ;NOTE(adam): change each word in a string with the function
 (defn changeWords [string changer]
-  (def stringList (.split (.toLowerCase string) " "))
-  (def changedList (map changer stringList))
-  (def changedString (reduce #(str %1 " " %2) changedList))
-  (str (.toUpperCase  (str (first changedString))) (apply str (rest changedString))))
+  (def stringList
+    (.split (.toLowerCase string) " "))
+  (def changedList
+    (map changer stringList))
+  (def changedString
+    (reduce #(str %1 " " %2) changedList))
+
+  (str (.toUpperCase (str (first changedString)))
+       (apply str (rest changedString))))
 
 ;NOTE(adam): move first character to end and append "ay"
 (defn toPigLatin [string]
@@ -17,8 +22,6 @@
 
 
 (print "The quick brown fox -->  ")
-(print (toPigLatin "The quick brown fox"))
-(print \newline)
+(println (toPigLatin "The quick brown fox"))
 (print "Hetay uickqay rownbay oxfay -->  ")
-(print (fromPigLatin "Hetay uickqay rownbay oxfay"))
-(print \newline)
+(println (fromPigLatin "Hetay uickqay rownbay oxfay"))
